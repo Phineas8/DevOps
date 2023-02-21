@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chuck Norris Jokes</title>
+</head>
+<body>
+    <h1>Chuck Norris Jokes</h1>
+    <button id="get-joke">Get Joke</button>
+    <div id="joke"></div>
+    <script>
+        const button = document.getElementById('get-joke');
+        const jokeContainer = document.getElementById('joke');
+
+        button.addEventListener('click', () => {
+            fetch('https://api.chucknorris.io/jokes/random')
+                .then(response => response.json())
+                .then(data => {
+                    jokeContainer.innerHTML = data.value;
+                });
+        });
+    </script>
+</body>
+</html>
